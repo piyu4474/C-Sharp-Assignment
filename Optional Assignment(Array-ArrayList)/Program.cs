@@ -7,74 +7,84 @@ namespace Optional_Assignment_Array_ArrayList_
         static void Main(string[] args)
         {
                 Console.WriteLine("*****ARRAY DIFFERENT METHODS*****");
+                ArrayDisplay arr = new ArrayDisplay();
+                Array a = arr.display();
 
-                int i;
-                int j;
-                Console.WriteLine("\n ----------FIRST ARRAY----------");
-                Console.WriteLine("\nEnter size of first array:");
-                j = Convert.ToInt32(Console.ReadLine());
-                string[] arr = new string[j];
-                for (i = 0; i < j; i++)
-                {
-                    Console.Write("\nEnter any string:  ");
-                    //Storing value in an array
-                    arr[i] = Console.ReadLine();
-                }
-                Console.WriteLine("\n");
-                Console.WriteLine("*****DISPLAY ARRAY DATA*****\n");
+                ArrayMethod am = new ArrayMethod();
+                am.sortArray(a); //To sort the array
+                am.reverseArr(a); //To reverse the array
+                am.equalArr(a); //To check the array are equals or not
+        }   
+    } 
+    public class ArrayDisplay
+    {
+        public Array display()
+        {
+            int i;
+            int j;
+            Console.WriteLine("\n ----------FIRST ARRAY----------");
+            Console.WriteLine("\nEnter size of Array:");
+            j = Convert.ToInt32(Console.ReadLine());
+            string[] arr = new string[j];
+            for (i = 0; i < j; i++)
+            {
+                Console.Write("\nEnter any string:  ");
+                //Storing value in an array
+                arr[i] = Console.ReadLine();
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("*****DISPLAY ARRAY DATA*****\n");
 
-                //Printing the value on console
-                for (i = 0; i < j; i++)
-                {
-                    Console.WriteLine("   First Array String: {0}", arr[i]);
-                }
-                // Sorting array  
-                Console.WriteLine("\n*****SORT METHOD*****");
+            //Printing the value on console
+            for (i = 0; i < j; i++)
+            {
+                Console.WriteLine("   First Array String: {0}", arr[i]);
+            }
+            return arr;
+        }
+     
+    }
+    public class ArrayMethod
+    {
+        public void sortArray(Array arr1)
+        {
+            Array.Sort(arr1);
+            // Sorting array  
+            Console.WriteLine("\n*****SORT METHOD*****");
 
-                Array.Sort(arr);
-                Console.WriteLine("\nSorted array list: \n");
-                // Displaying sorted array  
-                for (i = 0; i < j; i++)
-                {
-                    Console.WriteLine("\t" + arr[i] + "\n");
-                }
+            Console.WriteLine("\nSorted array list: \n");
+            // Displaying sorted array  
+           foreach(var item in arr1)
+            {
+                Console.WriteLine(item);
+            }
 
-                // Reverse array  
-                Console.WriteLine("*****REVERSE METHOD*****");
+        }
 
-                Array.Reverse(arr);
-                Console.WriteLine("\nReversed array list: \n");
-                // Displaying reversed array  
-                for (i = 0; i < j; i++)
-                {
-                    Console.WriteLine("\t" + arr[i] + "\n");
-                }
+        public void reverseArr(Array arr2)
+        {
+            Array.Reverse(arr2);
 
-                Console.WriteLine("\n ----------SECOND ARRAY----------");
-                int k, l;
-                Console.WriteLine("\nEnter size of second array:");
-                l = Convert.ToInt32(Console.ReadLine());
-                string[] arr2 = new string[j];
-                for (k = 0; k < l; k++)
-                {
-                    Console.Write("\nEnter any string:  ");
-                    //Storing value in an array
-                    arr2[k] = Console.ReadLine();
-                }
-                Console.WriteLine("\n");
-                Console.WriteLine("*****DISPLAY ARRAY DATA*****\n");
+            // Reverse array  
+            Console.WriteLine("*****REVERSE METHOD*****");
 
-                //Printing the value on console
-                for (k = 0; k < l; k++)
-                {
-                    Console.WriteLine("   Second Array String:\n {0}", arr2[k]);
-                }
+            Console.WriteLine("\nReversed array list: \n");
+            // Displaying reversed array  
+            foreach (var item in arr2)
+            {
+                Console.WriteLine(item);
+            }
 
-                //To check the two arrays are equals or not
+        }
 
-                Console.WriteLine("*****Check The Two Array Are Equals Or Not*****");
+        public void equalArr(Array arr3)
+        {
+            Array a1 = arr3;
+            //To check the two arrays are equals or not
 
-                Console.WriteLine("\n" + arr.Equals(arr2));            
+            Console.WriteLine("*****Check The Two Array Are Equals Or Not*****");
+
+            Console.WriteLine("\n" + a1.Equals(arr3));
         }
     }
 }
